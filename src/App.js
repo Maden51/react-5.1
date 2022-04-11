@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import Card from './components/Card.js';
+import { nanoid } from 'nanoid'
+
+const dataTest = [
+  {
+    id: nanoid(),
+    img: 'https://i.pravatar.cc/150?u=a042581f4e29026704d',
+    link: '#',
+    title: 'Card title',
+    text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
+  },
+  {
+    id: nanoid(),
+    link: '#',
+    title: 'Special title treatment',
+    text: 'With supporting text below as a natural lead-in to additional content.'
+  }
+]
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+    {dataTest.map((card) => (
+      <Card 
+        {...card}
+        key={card.id}
+      >
+        <p className="card-text">{card.text}</p>
+      </Card>
+    ))}
     </div>
   );
 }

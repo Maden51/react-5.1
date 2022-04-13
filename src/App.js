@@ -19,7 +19,6 @@ const dataTest = [
 ]
 
 function App() {
-  
   return (
     <div className="container">
     {dataTest.map((card) => (
